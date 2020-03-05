@@ -5,21 +5,21 @@
 // <creator name="Sushanta Das"/>
 // ---------------------------------------------------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace StateCensusAnalyser
 {
-    class Program
+   public class CheckRecord
     {
-       
-        private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
-        static void Main(string[] args)
+        public static int CheckedRecordMatch(string path)
         {
-            Console.WriteLine("Welcome to Census Analyser");
-            int v = StateCensusAnalysis.ReadCsvFile(path);
-            Console.WriteLine(v);
-            Console.WriteLine(CheckRecord.CheckedRecordMatch(path));
+                string[] data = File.ReadAllLines(path);
+                return data.Length;
+            
         }
-
     }
-    
 }
+    
+
