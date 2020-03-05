@@ -5,7 +5,6 @@
 // <creator name="Sushanta Das"/>
 // ---------------------------------------------------------------------------------------------------------------
 using System;
-
 namespace StateCensusAnalyser
 {
     class Program

@@ -13,6 +13,12 @@ namespace StateCensusAnalyser
 {
    public class CheckRecord
     {
+        /// <summary>
+        /// Checkeds the record match.
+        /// calculate the length of cvs file data 
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public static int CheckedRecordMatch(string path)
         {
                 string[] data = File.ReadAllLines(path);

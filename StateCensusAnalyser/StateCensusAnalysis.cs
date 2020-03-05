@@ -10,8 +10,18 @@ using System.Data;
 using System.IO;
 namespace StateCensusAnalyser
 {
+    /// <summary>
+    /// Create a StateCensusAnalysis class
+    /// Read the csv file
+    /// </summary>
     public class StateCensusAnalysis
     {
+        /// <summary>
+        /// Reads the CSV file.
+        /// read the data from the csv file
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public static int ReadCsvFile(string path)
         { 
            int count = 0;
