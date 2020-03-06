@@ -26,14 +26,19 @@ namespace StateCensusAnalyser
         {
             try
             {
-                int count = 0;
-                string[] data = File.ReadAllLines(path);
-                IEnumerable<string> element = data;
-                foreach (var item in element)
+                if (Path.GetExtension(path) == ".csv")
                 {
-                    count++;
+                    int count = 0;
+                    string[] data = File.ReadAllLines(path);
+                    IEnumerable<string> element = data;
+                    foreach (var item in element)
+                    {
+                        count++;
+                    }
+                    return count;
                 }
-                return count;
+                else
+                    throw new StateCensusException("Type of file is incurrect");
             }
             catch (FileNotFoundException)
             {

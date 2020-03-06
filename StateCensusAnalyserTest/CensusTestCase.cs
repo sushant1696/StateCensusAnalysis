@@ -27,8 +27,18 @@ namespace StateCensusAnalyserTest
         [Test]
         public void When_csv_file_incurrect_return_custom_Exception()
         {
-            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv"));
+            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.csv"));
             Assert.AreEqual("file path is incurrect", ex.GetMessage);
+        }
+        /// <summary>
+        /// Files the path currect but type is incurrect.
+        /// usecse 1.3 file path is currect but extension of file is incurrect  
+        /// </summary>
+        [Test]
+        public void FilePathCurrectButTypeIsIncurrect()
+        {
+            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
+            Assert.AreEqual("Type of file is incurrect", ex.GetMessage);
         }
     }
 }
