@@ -23,15 +23,23 @@ namespace StateCensusAnalyser
         /// <param name="path">The path.</param>
         /// <returns></returns>
         public static int ReadCsvFile(string path)
-        { 
-           int count = 0;
-        string[] data = File.ReadAllLines(path);
-        IEnumerable<string> element = data;
-            foreach (var item in element)
+        {
+            try
             {
-                count++;
+                int count = 0;
+                string[] data = File.ReadAllLines(path);
+                IEnumerable<string> element = data;
+                foreach (var item in element)
+                {
+                    count++;
+                }
+                return count;
             }
-            return count;
+            catch (FileNotFoundException)
+            {
+                throw new StateCensusException("file path is incurrect");
+            }
+          
         }
     }
     
