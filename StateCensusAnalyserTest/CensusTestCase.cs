@@ -31,7 +31,7 @@ namespace StateCensusAnalyserTest
         public void When_csv_file_incurrect_return_custom_Exception()
         {
             var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.csv"));
-            Assert.AreEqual("file path is incurrect", ex.GetMessage);
+            Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
         /// Files the path currect but type is incurrect.
@@ -41,7 +41,7 @@ namespace StateCensusAnalyserTest
         public void FilePathCurrectButTypeIsIncurrect()
         {
             var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
-            Assert.AreEqual("Type of file is incurrect", ex.GetMessage);
+            Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
         /// <summary>
         /// Files the path currect butdelimiter incurect.
@@ -50,8 +50,18 @@ namespace StateCensusAnalyserTest
         [Test]
         public void FilePathCurrectButdelimiterIncurect()
         {
-            var del = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(path,'.'));
-            Assert.AreEqual("given delimiter incurrect", del.GetMessage);
+            var del = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(path, '.'));
+            Assert.AreEqual("given delimiter incorrect", del.GetMessage);
+        }
+        /// <summary>
+        /// Files the path currect but header incorrect.
+        /// test case 1.5 where path is correct but header is incorrect
+        /// </summary>
+        [Test]
+        public void FilePathCurrectBut_header_incorrect()
+        {
+            var del = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(path, '.', "State,Population,AreaInSqKm,DensityPerSqKmss"));
+            Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
     }
 }
