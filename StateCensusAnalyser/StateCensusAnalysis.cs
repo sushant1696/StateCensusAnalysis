@@ -22,7 +22,7 @@ namespace StateCensusAnalyser
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public static int ReadCsvFile(string path)
+        public static int ReadCsvFile(string path,char delimiter=',')
         {
             try
             {
@@ -30,6 +30,14 @@ namespace StateCensusAnalyser
                 {
                     int count = 0;
                     string[] data = File.ReadAllLines(path);
+                    foreach (string str in data)
+                    {
+
+                        if (str.Split(delimiter).Length != 4 && str.Split(delimiter).Length != 2)
+                        {
+                            throw new StateCensusException("given delimiter incurrect");
+                        }
+                    }
                     IEnumerable<string> element = data;
                     foreach (var item in element)
                     {
