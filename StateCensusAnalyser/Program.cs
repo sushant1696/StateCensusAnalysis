@@ -11,12 +11,10 @@ namespace StateCensusAnalyser
     {
        
         private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
+        private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Census Analyser");
-            int v = StateCensusAnalysis.ReadCsvFile(path);
-            Console.WriteLine(v);
-            Console.WriteLine(CSVStateCensus.CheckedRecordMatch(path));
+            
         }
 
     }

@@ -13,18 +13,42 @@ namespace StateCensusAnalyser
 {
    public class CSVStateCensus
     {
-        /// <summary>
-        /// Checkeds the record match.
-        /// calculate the length of cvs file data 
-        /// </summary>
-        /// <param name="path2">The path.</param>
-        /// <returns></returns>
-        public static int CheckedRecordMatch(string path)
+        public static int ReadCsvFile(string path, char delimiter = ',', string header = "State,Population,AreaInSqKm,DensityPerSqKm")
         {
-                string[] data = File.ReadAllLines(path);
-                return data.Length;
-            
+            try
+            {
+                if (Path.GetExtension(path) == ".csv")
+                {
+                    int count = 0;
+                    string[] data = File.ReadAllLines(path);
+                    if (!data[0].Equals(header))
+                    {
+                        throw new StateCensusException("given_header_incorrect");
+                    }
+                    foreach (string str in data)
+                    {
+                        if (str.Split(delimiter).Length != 4 && str.Split(delimiter).Length != 2)
+                        {
+                            throw new StateCensusException("given delimiter incorrect");
+                        }
+                    }
+                    IEnumerable<string> element = data;
+                    foreach (var item in element)
+                    {
+                        count++;
+                    }
+                    return count;
+                }
+                else
+                    throw new StateCensusException("Type of file is incorrect");
+            }
+            catch (FileNotFoundException)
+            {
+                throw new StateCensusException("file path is incorrect");
+            }
+
         }
+
     }
 }
     

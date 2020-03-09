@@ -14,87 +14,88 @@ namespace StateCensusAnalyserTest
         private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
         private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         /// <summary>
-        /// Checks to ensure the number of record matches.
-        /// Test case_1.1 check the number of record match or not
+        /// Test case 1.1 Giventhes the states census cs vfile when analyse sould check to ensurethe number of recordmatches.
         /// </summary>
         [Test]
-        public void CheckTo_ensure_the_Number_of_Record_matches()
+        public void GiventheStatesCensusCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
-            int count1 = StateCensusAnalysis.ReadCsvFile(path);
-            int count2 = CSVStateCensus.CheckedRecordMatch(path);
-            Assert.AreEqual(count1, count2);
+            int expect = StateCensusAnalysis.CSVStateCodeMethod(path);
+            int  result= CSVStateCensus.ReadCsvFile(path);
+            Assert.AreEqual(expect,result);
         }
         /// <summary>
-        /// Whens the CSV file incurrect return custom exception.
-        /// UseCase 1.2 when csv file incurrect return custom exception
+        /// Test case 1.2 Givens the incorrectfile when analyse should throw censusu analyser exception.
         /// </summary>
-       [Test]
-        public void When_csv_file_incurrect_return_custom_Exception()
+        [Test]
+        public void GivenIncorrectfile_WhenAnalyse_ShouldThrowCensusuAnalyserException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatasss.csv"));
+            var ex = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatasss.csv"));
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
-        /// Files the path currect but type is incurrect.
-        /// usecse 1.3 file path is currect but extension of file is incurrect  
+        /// Test Case 1.3 Givens the state census CSV file correct but type incorrect when analyse sould returns custom exception.
         /// </summary>
         [Test]
-        public void FilePathCurrectButTypeIsIncurrect()
+        public void GivenTheStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
+            var ex = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
             Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
         /// <summary>
-        /// Files the path currect butdelimiter incurect.
-        /// TestCase 1.4 incurrect delemiter return a custom exception 
+        /// Test Case 1.4 Givens the state census CSV file correct but delimiter incorrect when analyse sould returnscustom exception.
         /// </summary>
         [Test]
-        public void FilePathCurrectButdelimiterIncurect()
+        public void GivenTheStateCensusCSVFileCorrectButDelimiterIncorrect_WhenAnalyse_SouldReturnscustomException()
         {
-            var del = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(path, '.'));
+            var del = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(path, '.'));
             Assert.AreEqual("given delimiter incorrect", del.GetMessage);
         }
         /// <summary>
-        /// Files the path currect but header incorrect.
-        /// test case 1.5 where path is correct but header is incorrect
+        /// Test Case 1.5 Givens the incorrect header when analyse should throw census analyser exception.
         /// </summary>
-        [Test]
-        public void FilePathCurrectBut_header_incorrect()
+       [Test]
+        public void GivenIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
-            var del = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(path, '.', "State,Population,AreaInSqKm,DensityPerSqKmss"));
+            var del = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(path, '.', "State,Population,AreaInSqKm,DensityPerSqKmss"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
         /// <summary>
-        /// Checks to ensure the number of record matches.
-        /// Repeat usecase 2.1
+        /// Test case 2.1 Giventhes the states code cs vfile when analyse sould check to ensurethe number of recordmatches.
         /// </summary>
         [Test]
-        public void CheckTo_ensure_the_Number_of_Record_matches_of_StateCode()
+        public void GiventheStatesCodeCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
-            int count3 = CSVStates.CSVStateCodeMethod(path2);
-            int count4 = StateCensusAnalysis.ReadStateCode(path2);
-            Assert.AreEqual(count3, count4);
-        }
-
-        /// <summary>
-        /// Test case_2.1 Whens the  state code csv file is incurrect return custom exception.
-        /// </summary>
-        [Test]
-        public void When_csv_file_state_code_is_incurrect_return_custom_Exception()
-        {
-            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadStateCode(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodehhhhhh.csv"));
-            Assert.AreEqual("Incurrect File", ex.GetMessage);
+            int expect = StateCensusAnalysis.CSVStateCodeMethod(path2);
+            int result = CSVStates.ReadCsvFile(path2);
+            Assert.AreEqual(expect,result);
         }
         /// <summary>
-        /// Test Case 2.3 File path currect but type is incurrect.
+        /// Test case 2.2 Givens the incorrectfile when analyse should throw censusu analyser exception.
         /// </summary>
         [Test]
-        public void StateCode_FilePath_Currect_But_Type_Is_Incurrect()
+        public void GivenTheIncorrectfile_WhenAnalyse_ShouldThrowCensusuAnalyserException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadStateCode(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
-            Assert.AreEqual("type incorrect", ex.GetMessage);
+            var ex = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodehhhhhh.csv"));
+            Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
-
-
+        /// <summary>
+        /// TestCase 2.3 Givens the state census CSV file correct but type incorrect when analyse sould returns custom exception.
+        /// </summary>
+        [Test]
+        public void GivenStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
+        {
+            var ex = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
+            Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
+        }
+        /// <summary>
+        /// Test Case 2.4 Givens the state census CSV file correct but delimiter incorrect when analyse sould returnscustom exception.
+        /// </summary>
+        [Test]
+        public void GivenStateCensusCSVFileCorrectButDelimiterIncorrect_WhenAnalyse_SouldReturnscustomException()
+        {
+            var dell = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(path2, '.'));
+            Assert.AreEqual("given delimiter incorrect", dell.GetMessage);
+        }
+        
     }
 }
