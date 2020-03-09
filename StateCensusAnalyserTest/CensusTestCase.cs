@@ -28,10 +28,10 @@ namespace StateCensusAnalyserTest
         /// Whens the CSV file incurrect return custom exception.
         /// UseCase 1.2 when csv file incurrect return custom exception
         /// </summary>
-        [Test]
+       [Test]
         public void When_csv_file_incurrect_return_custom_Exception()
         {
-            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.csv"));
+            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatasss.csv"));
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -66,6 +66,7 @@ namespace StateCensusAnalyserTest
         }
         /// <summary>
         /// Checks to ensure the number of record matches.
+        /// Repeat usecase 2.1
         /// </summary>
         [Test]
         public void CheckTo_ensure_the_Number_of_Record_matches_of_StateCode()
@@ -74,6 +75,14 @@ namespace StateCensusAnalyserTest
             int count4 = StateCensusAnalysis.ReadStateCode(path2);
             Assert.AreEqual(count3, count4);
         }
+
+        [Test]
+        public void When_csv_file_state_code_is_incurrect_return_custom_Exception()
+        {
+            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadStateCode(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodehhhhhh.csv"));
+            Assert.AreEqual("Incurrect File", ex.GetMessage);
+        }
+
 
     }
 }
