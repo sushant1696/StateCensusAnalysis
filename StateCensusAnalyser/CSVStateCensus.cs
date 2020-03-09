@@ -11,8 +11,27 @@ using System.Text;
 
 namespace StateCensusAnalyser
 {
-   public class CSVStateCensus
+    /// <summary>
+    /// Creat a class CSVStateCensus
+    /// </summary>
+    public class CSVStateCensus
     {
+        /// <summary>
+        /// Reads the CSV file.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <param name="header">The header.</param>
+        /// <returns></returns>
+        /// <exception cref="StateCensusException">
+        /// given_header_incorrect
+        /// or
+        /// given delimiter incorrect
+        /// or
+        /// Type of file is incorrect
+        /// or
+        /// file path is incorrect
+        /// </exception>
         public static int ReadCsvFile(string path, char delimiter = ',', string header = "State,Population,AreaInSqKm,DensityPerSqKm")
         {
             try

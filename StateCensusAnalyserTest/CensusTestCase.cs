@@ -9,6 +9,9 @@ using StateCensusAnalyser;
 
 namespace StateCensusAnalyserTest
 {
+    /// <summary>
+    /// creat a class CensusTestCase
+    /// </summary>
     public class CensusTestCase
     {
         private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
