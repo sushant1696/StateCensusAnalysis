@@ -16,7 +16,7 @@ namespace StateCensusAnalyser
             Console.WriteLine("Welcome to Census Analyser");
             int v = StateCensusAnalysis.ReadCsvFile(path);
             Console.WriteLine(v);
-            Console.WriteLine(CheckRecord.CheckedRecordMatch(path));
+            Console.WriteLine(CSVStateCensus.CheckedRecordMatch(path));
         }
 
     }

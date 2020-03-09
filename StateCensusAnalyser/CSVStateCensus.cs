@@ -11,7 +11,7 @@ using System.Text;
 
 namespace StateCensusAnalyser
 {
-   public class CheckRecord
+   public class CSVStateCensus
     {
         /// <summary>
         /// Checkeds the record match.
