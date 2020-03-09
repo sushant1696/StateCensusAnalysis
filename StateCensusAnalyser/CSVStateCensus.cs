@@ -17,7 +17,7 @@ namespace StateCensusAnalyser
         /// Checkeds the record match.
         /// calculate the length of cvs file data 
         /// </summary>
-        /// <param name="path">The path.</param>
+        /// <param name="path2">The path.</param>
         /// <returns></returns>
         public static int CheckedRecordMatch(string path)
         {

@@ -12,6 +12,7 @@ namespace StateCensusAnalyserTest
     public class CensusTestCase
     {
         private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
+        private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         /// <summary>
         /// Checks to ensure the number of record matches.
         /// Test case_1.1 check the number of record match or not
@@ -63,5 +64,16 @@ namespace StateCensusAnalyserTest
             var del = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadCsvFile(path, '.', "State,Population,AreaInSqKm,DensityPerSqKmss"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
+        /// <summary>
+        /// Checks to ensure the number of record matches.
+        /// </summary>
+        [Test]
+        public void CheckTo_ensure_the_Number_of_Record_matches_of_StateCode()
+        {
+            int count3 = CSVStates.CSVStateCodeMethod(path2);
+            int count4 = StateCensusAnalysis.ReadStateCode(path2);
+            Assert.AreEqual(count3, count4);
+        }
+
     }
 }

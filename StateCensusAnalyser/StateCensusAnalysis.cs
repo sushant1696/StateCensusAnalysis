@@ -58,6 +58,17 @@ namespace StateCensusAnalyser
             }
           
         }
+        public static int ReadStateCode(string path2)
+        {
+            int count2 = 0;
+            string[] data = File.ReadAllLines(path2);
+            IEnumerable<string> element = data;
+            foreach (var items in element)
+            {
+                count2++;
+            }
+            return count2;
+        }
     }
     
 }
