@@ -76,11 +76,23 @@ namespace StateCensusAnalyserTest
             Assert.AreEqual(count3, count4);
         }
 
+        /// <summary>
+        /// Test case_2.1 Whens the  state code csv file is incurrect return custom exception.
+        /// </summary>
         [Test]
         public void When_csv_file_state_code_is_incurrect_return_custom_Exception()
         {
             var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadStateCode(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodehhhhhh.csv"));
             Assert.AreEqual("Incurrect File", ex.GetMessage);
+        }
+        /// <summary>
+        /// Test Case 2.3 File path currect but type is incurrect.
+        /// </summary>
+        [Test]
+        public void StateCode_FilePath_Currect_But_Type_Is_Incurrect()
+        {
+            var ex = Assert.Throws<StateCensusException>(() => StateCensusAnalysis.ReadStateCode(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
+            Assert.AreEqual("type incorrect", ex.GetMessage);
         }
 
 

@@ -62,19 +62,25 @@ namespace StateCensusAnalyser
         {
             try
             {
-                int count2 = 0;
-                string[] data = File.ReadAllLines(path2);
-                IEnumerable<string> element = data;
-                foreach (var items in element)
+                if (Path.GetExtension(path2) == ".csv")
                 {
-                    count2++;
+                    int count2 = 0;
+                    string[] data = File.ReadAllLines(path2);
+                    IEnumerable<string> element = data;
+                    foreach (var items in element)
+                    {
+                        count2++;
+                    }
+                    return count2;
                 }
-                return count2;
+                else
+                    throw new StateCensusException("type incorrect");
             }
             catch (FileNotFoundException)
             {
                 throw new StateCensusException("Incurrect File");
             }
+
         }
     }
     
