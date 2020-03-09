@@ -96,6 +96,15 @@ namespace StateCensusAnalyserTest
             var dell = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(path2, '.'));
             Assert.AreEqual("given delimiter incorrect", dell.GetMessage);
         }
-        
+        /// <summary>
+        /// test case 2.5 Givens the incorrect header when analyse should throw census analyser exception.
+        /// </summary>
+        [Test]
+        public void GivenTheIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
+        {
+            var del = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(path2, '.', "SrNo,State,Name,TIN,StateCodeIncorrectHeader"));
+            Assert.AreEqual("given_header_incorrect", del.GetMessage);
+        }
+
     }
 }
