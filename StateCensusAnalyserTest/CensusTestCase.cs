@@ -79,7 +79,7 @@ namespace StateCensusAnalyserTest
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
-        /// TestCase 2.3 Givens the state census CSV file correct but type incorrect when analyse sould returns custom exception.
+        /// TestCase 2.3 Givens the state census CSV file correct but type incorrect when analyse sould throw custom exception.
         /// </summary>
         [Test]
         public void GivenStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
