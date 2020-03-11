@@ -6,14 +6,19 @@
 // ---------------------------------------------------------------------------------------------------------------
 using NUnit.Framework;
 using StateCensusAnalyser;
+using static StateCensusAnalyser.CSVStateCensus;
+using static StateCensusAnalyser.StateCensusAnalysis;
 
 namespace StateCensusAnalyserTest
 {
     /// <summary>
-    /// creat a class CensusTestCase
+    /// Creat a class CensusTestCase
     /// </summary>
     public class CensusTestCase
     {
+        delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(StateCensusAnalysis.CSVStateCodeMethod);
+        DCsvState delegateobj = new DCsvState(CSVStates.ReadCsvFile);
+        DelReadCsvFile delegateobjj = new DelReadCsvFile(CSVStateCensus.ReadCsvFile);
         private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
         private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         /// <summary>
@@ -22,8 +27,9 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GiventheStatesCensusCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
-            int expect = StateCensusAnalysis.CSVStateCodeMethod(path);
-            int  result= CSVStateCensus.ReadCsvFile(path);
+
+            int expect = delobj(path);
+            int  result= delegateobjj(path);
             Assert.AreEqual(expect,result);
         }
         /// <summary>
@@ -32,7 +38,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenIncorrectfile_WhenAnalyse_ShouldThrowCensusuAnalyserException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatasss.csv"));
+            var ex = Assert.Throws<StateCensusException>(() => delegateobjj(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatasss.csv"));
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -41,7 +47,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
+            var ex = Assert.Throws<StateCensusException>(() => delegateobjj(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
             Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -50,7 +56,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheStateCensusCSVFileCorrectButDelimiterIncorrect_WhenAnalyse_SouldReturnscustomException()
         {
-            var del = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(path, '.'));
+            var del = Assert.Throws<StateCensusException>(() => delegateobjj(path, '.'));
             Assert.AreEqual("given delimiter incorrect", del.GetMessage);
         }
         /// <summary>
@@ -59,7 +65,7 @@ namespace StateCensusAnalyserTest
        [Test]
         public void GivenIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
-            var del = Assert.Throws<StateCensusException>(() => CSVStateCensus.ReadCsvFile(path, '.', "State,Population,AreaInSqKm,DensityPerSqKmss"));
+            var del = Assert.Throws<StateCensusException>(() => delegateobjj(path, '.', "State,Population,AreaInSqKm,DensityPerSqKmss"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
         /// <summary>
@@ -69,7 +75,7 @@ namespace StateCensusAnalyserTest
         public void GiventheStatesCodeCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
             int expect = StateCensusAnalysis.CSVStateCodeMethod(path2);
-            int result = CSVStates.ReadCsvFile(path2);
+            int result = delegateobj(path2);
             Assert.AreEqual(expect,result);
         }
         /// <summary>
@@ -78,7 +84,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheIncorrectfile_WhenAnalyse_ShouldThrowCensusuAnalyserException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodehhhhhh.csv"));
+            var ex = Assert.Throws<StateCensusException>(() => delegateobj(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodehhhhhh.csv"));
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -87,7 +93,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
         {
-            var ex = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
+            var ex = Assert.Throws<StateCensusException>(() => delegateobj(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensus.text"));
             Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -96,7 +102,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenStateCensusCSVFileCorrectButDelimiterIncorrect_WhenAnalyse_SouldReturnscustomException()
         {
-            var dell = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(path2, '.'));
+            var dell = Assert.Throws<StateCensusException>(() => delegateobj(path2, '.'));
             Assert.AreEqual("given delimiter incorrect", dell.GetMessage);
         }
         /// <summary>
@@ -105,7 +111,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
-            var del = Assert.Throws<StateCensusException>(() => CSVStates.ReadCsvFile(path2, '.', "SrNo,State,Name,TIN,StateCodeIncorrectHeader"));
+            var del = Assert.Throws<StateCensusException>(() => delegateobj(path2, '.', "SrNo,State,Name,TIN,StateCodeIncorrectHeader"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
 

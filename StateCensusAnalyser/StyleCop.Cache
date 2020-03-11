@@ -92,7 +92,7 @@
     <timestamps>
       <styleCop>2019-12-26 15:05:21.045</styleCop>
       <settingsFile>2020-03-09 09:48:10.588</settingsFile>
-      <sourceFile>2020-03-09 18:39:57.197</sourceFile>
+      <sourceFile>2020-03-09 18:48:04.099</sourceFile>
       <parser>2019-12-26 15:05:21.045</parser>
       <StyleCop.CSharp.DocumentationRules>2019-12-26 15:05:21.045</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1348334120</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -123,8 +123,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
         <context>The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'.</context>
         <line>40</line>
-        <index>1388</index>
-        <endIndex>1413</endIndex>
+        <index>1390</index>
+        <endIndex>1415</endIndex>
         <startLine>40</startLine>
         <startColumn>9</startColumn>
         <endLine>40</endLine>
@@ -134,8 +134,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
         <context>The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'.</context>
         <line>41</line>
-        <index>1424</index>
-        <endIndex>1426</endIndex>
+        <index>1426</index>
+        <endIndex>1428</endIndex>
         <startLine>41</startLine>
         <startColumn>9</startColumn>
         <endLine>41</endLine>
@@ -145,8 +145,8 @@
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
         <context>The comment must start with a single space. To ignore this error when commenting out a line of code, begin the comment with '////' rather than '//'.</context>
         <line>45</line>
-        <index>1514</index>
-        <endIndex>1516</endIndex>
+        <index>1516</index>
+        <endIndex>1518</endIndex>
         <startLine>45</startLine>
         <startColumn>9</startColumn>
         <endLine>45</endLine>
@@ -155,11 +155,6 @@
       </violation>
       <violation namespace="StyleCop.CSharp.MaintainabilityRules" rule="FieldsMustBePrivate" ruleCheckId="SA1401">
         <context>Fields must be declared with private access. Use properties to expose fields.</context>
-        <line>22</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.NamingRules" rule="AccessibleFieldsMustBeginWithUpperCaseLetter" ruleCheckId="SA1307">
-        <context>Public and internal fields must start with an upper-case letter: message.</context>
         <line>22</line>
         <warning>False</warning>
       </violation>
@@ -178,6 +173,28 @@
         <line>23</line>
         <warning>False</warning>
       </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="OpeningParenthesisMustBeSpacedCorrectly" ruleCheckId="SA1008">
+        <context>Invalid spacing around the opening parenthesis.</context>
+        <line>28</line>
+        <index>1101</index>
+        <endIndex>1101</endIndex>
+        <startLine>28</startLine>
+        <startColumn>37</startColumn>
+        <endLine>28</endLine>
+        <endColumn>37</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="StyleCop.CSharp.SpacingRules" rule="ClosingParenthesisMustBeSpacedCorrectly" ruleCheckId="SA1009">
+        <context>Invalid spacing around the closing parenthesis.</context>
+        <line>28</line>
+        <index>1112</index>
+        <endIndex>1112</endIndex>
+        <startLine>28</startLine>
+        <startColumn>48</startColumn>
+        <endLine>28</endLine>
+        <endColumn>48</endColumn>
+        <warning>False</warning>
+      </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="ElementsMustBeSeparatedByBlankLine" ruleCheckId="SA1516">
         <context>Adjacent elements must be separated by a blank line.</context>
         <line>38</line>
@@ -189,10 +206,10 @@
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.ReadabilityRules" rule="PrefixCallsCorrectly" ruleCheckId="SA1126">
-        <context>The call to message must begin with the 'this.', 'base.', 'object.' or 'StateCensusException.' or 'Exception.' prefix to indicate the intended method call. </context>
+        <context>The call to Message must begin with the 'this.', 'base.', 'object.' or 'StateCensusException.' or 'Exception.' prefix to indicate the intended method call. </context>
         <line>38</line>
-        <index>1366</index>
-        <endIndex>1372</endIndex>
+        <index>1368</index>
+        <endIndex>1374</endIndex>
         <startLine>38</startLine>
         <startColumn>43</startColumn>
         <endLine>38</endLine>

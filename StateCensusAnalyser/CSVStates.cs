@@ -11,6 +11,7 @@ using System.Text;
 
 namespace StateCensusAnalyser
 {
+    public delegate int DCsvState(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode");
     public class CSVStates
     {
         public static int ReadCsvFile(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode")
