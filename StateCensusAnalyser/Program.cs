@@ -18,17 +18,17 @@ namespace StateCensusAnalyser
         {
             Console.WriteLine("This is CSVStates class methods delegate process.......");
             /// Create a object of delegate
-             DCsvState delegateobj = new DCsvState(CSVStates.ReadCsvFile);
+             DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
             delegateobj(path2, ',', "SrNo,State,Name,TIN,StateCode");
 
             Console.WriteLine("This is CSVStatesCensus class methods delegate process.......");
             ///Create a object of delegate
-            DelReadCsvFile delegateobjj = new DelReadCsvFile(CSVStateCensus.ReadCsvFile);
+            DelReadCsvFile delegateobjj = new DelReadCsvFile(new CSVStateCensus().ReadCsvFile);
             delegateobjj(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm");
 
             Console.WriteLine("This is StateCensusAnalysis class methods delegate process.......");
             ///Create a object of delegateOf_CSVStateCodeMethod
-            delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(StateCensusAnalysis.CSVStateCodeMethod);
+            delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
             delobj(path);
         }
 

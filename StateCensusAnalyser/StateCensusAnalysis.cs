@@ -23,7 +23,7 @@ namespace StateCensusAnalyser
         /// <param name="path">The path.</param>
         /// <returns></returns>
         public delegate int delegateOf_CSVStateCodeMethod(string path);
-        public static int CSVStateCodeMethod(string path)
+        public int CSVStateCodeMethod(string path)
         {
             string[] data = File.ReadAllLines(path);
             return data.Length;

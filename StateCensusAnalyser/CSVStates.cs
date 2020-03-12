@@ -12,9 +12,9 @@ using System.Text;
 namespace StateCensusAnalyser
 {
     public delegate int DCsvState(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode");
-    public class CSVStates
+    public class CSVStates: IBuilder
     {
-        public static int ReadCsvFile(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode")
+        public int ReadCsvFile(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode")
         {
             try
             {

@@ -14,7 +14,7 @@ namespace StateCensusAnalyser
     /// <summary>
     /// Creat a class CSVStateCensus
     /// </summary>
-    public class CSVStateCensus
+    public class CSVStateCensus: IBuilder
     {
         /// <summary>
         /// Reads the CSV file.
@@ -33,7 +33,7 @@ namespace StateCensusAnalyser
         /// file path is incorrect
         /// </exception>
         public delegate int DelReadCsvFile(string path, char delimiter = ',', string header = "State,Population,AreaInSqKm,DensityPerSqKm");
-        public static int ReadCsvFile(string path, char delimiter = ',', string header = "State,Population,AreaInSqKm,DensityPerSqKm")
+        public int ReadCsvFile(string path, char delimiter = ',', string header = "State,Population,AreaInSqKm,DensityPerSqKm")
         {
             try
             {
