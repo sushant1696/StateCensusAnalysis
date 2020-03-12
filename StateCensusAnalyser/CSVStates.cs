@@ -20,7 +20,7 @@ namespace StateCensusAnalyser
             {
                 if (Path.GetExtension(path) == ".csv")
                 {
-                    int count = 0;
+                   
                     string[] data = File.ReadAllLines(path);
                     if (!data[0].Equals(header))
                     {

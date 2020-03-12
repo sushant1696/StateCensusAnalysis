@@ -4,7 +4,10 @@
 // </copyright>
 // <creator name="Sushanta Das"/>
 // ---------------------------------------------------------------------------------------------------------------
+using ChoETL;
 using System;
+using System.IO;
+using System.Text;
 using static StateCensusAnalyser.CSVStateCensus;
 using static StateCensusAnalyser.StateCensusAnalysis;
 
@@ -17,21 +20,26 @@ namespace StateCensusAnalyser
         static void Main(string[] args)
         {
             /*Console.WriteLine("This is CSVStates class methods delegate process.......");
-            /// Create a object of delegate
+            / Create a object of delegate
              DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
             delegateobj(path2, ',', "SrNo,State,Name,TIN,StateCode");
 
             Console.WriteLine("This is CSVStatesCensus class methods delegate process.......");
-            ///Create a object of delegate
+            /Create a object of delegate
             DelReadCsvFile delegateobjj = new DelReadCsvFile(new CSVStateCensus().ReadCsvFile);
             delegateobjj(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm");
 
             Console.WriteLine("This is StateCensusAnalysis class methods delegate process.......");
-            ///Create a object of delegateOf_CSVStateCodeMethod
+            /Create a object of delegateOf_CSVStateCodeMethod
             delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
             delobj(path);*/
+
             Console.WriteLine(new CSVStateCensus().ReadCsvFile(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
-            Console.WriteLine(new CSVStates().ReadCsvFile(path2,',',"SrNo,State,Name,TIN,StateCode"));
+            Console.WriteLine(new CSVStates().ReadCsvFile(path2, ',', "SrNo,State,Name,TIN,StateCode"));
+           
+            StateCensusAnalysis obj = new StateCensusAnalysis();
+            obj.JsonReadWrite();
+            
         }
 
     }
