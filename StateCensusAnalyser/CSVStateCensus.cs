@@ -39,7 +39,7 @@ namespace StateCensusAnalyser
             {
                 if (Path.GetExtension(path) == ".csv")
                 {
-                    int count = 0;
+                   
                     string[] data = File.ReadAllLines(path);
                     if (!data[0].Equals(header))
                     {
@@ -52,12 +52,13 @@ namespace StateCensusAnalyser
                             throw new StateCensusException("given delimiter incorrect");
                         }
                     }
-                    IEnumerable<string> element = data;
-                    foreach (var item in element)
+                    
+                    List<string > element = new List<string>();
+                    foreach (string  item in data)
                     {
-                        count++;
+                        element.Add(item);
                     }
-                    return count;
+                    return element.Count;
                 }
                 else
                     throw new StateCensusException("Type of file is incorrect");

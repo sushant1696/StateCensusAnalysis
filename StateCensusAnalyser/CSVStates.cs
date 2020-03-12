@@ -33,12 +33,12 @@ namespace StateCensusAnalyser
                             throw new StateCensusException("given delimiter incorrect");
                         }
                     }
-                    IEnumerable<string> element = data;
-                    foreach (var item in element)
+                    List<string> element = new List<string>();
+                    foreach (var item in data)
                     {
-                        count++;
+                        element.Add(item);
                     }
-                    return count;
+                    return element.Count;
                 }
                 else
                     throw new StateCensusException("Type of file is incorrect");
