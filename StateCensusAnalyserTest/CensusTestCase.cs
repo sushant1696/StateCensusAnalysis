@@ -21,23 +21,23 @@ namespace StateCensusAnalyserTest
         DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
         DelReadCsvFile delegateobjj = new DelReadCsvFile(new CSVStateCensus().ReadCsvFile);
         private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
-       public static string wrongpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatawewe.csv";
+        public static string wrongpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusDatawewe.csv";
         private static string wrongfiletype = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.txte";
         private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         private static string wrongpath2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodesdds.csv";
         private static string wrongfiletype2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.textsd";
-   
+
         /// <summary>
         /// Test case 1.1 Giventhes the states census cs vfile when analyse sould check to ensurethe number of recordmatches.
         /// </summary>
         [Test]
         public void GiventheStatesCensusCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
-            var a=Factory.IsFactory("CSVStateCensus");
-            var z= build_delegate(a,path,',', "State,Population,AreaInSqKm,DensityPerSqKm");
-           // int expect = delobj(path);
+            var a = Factory.IsFactory("CSVStateCensus");
+            var z = build_delegate(a, path, ',', "State,Population,AreaInSqKm,DensityPerSqKm");
+            // int expect = delobj(path);
             //int  result= delegateobjj(path);
-            Assert.AreEqual(30,z);
+            Assert.AreEqual(30, z);
         }
         /// <summary>
         /// Test case 1.2 Givens the incorrectfile when analyse should throw censusu analyser exception.
@@ -46,7 +46,7 @@ namespace StateCensusAnalyserTest
         public void GivenIncorrectfile_WhenAnalyse_ShouldThrowCensusuAnalyserException()
         {
             var obj = Factory.IsFactory("CSVStateCensus");
-            var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj, wrongpath,',', "State,Population,AreaInSqKm,DensityPerSqKm"));
+            var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj, wrongpath, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace StateCensusAnalyserTest
         public void GivenTheStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
         {
             var obj1 = Factory.IsFactory("CSVStateCensus");
-            var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj1,wrongfiletype,',', "State,Population,AreaInSqKm,DensityPerSqKm"));
+            var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj1, wrongfiletype, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace StateCensusAnalyserTest
         /// <summary>
         /// Test Case 1.5 Givens the incorrect header when analyse should throw census analyser exception.
         /// </summary>
-       [Test]
+        [Test]
         public void GivenIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
             var obj1 = Factory.IsFactory("CSVStateCensus");
@@ -89,7 +89,7 @@ namespace StateCensusAnalyserTest
             //int result = delegateobj(path2);
             var obj = Factory.IsFactory("CSVStates");
             var z = build_delegate(obj, path2, ',', "SrNo,State,Name,TIN,StateCode");
-            Assert.AreEqual(38,z);
+            Assert.AreEqual(38, z);
         }
         /// <summary>
         /// Test case 2.2 Givens the incorrectfile when analyse should throw censusu analyser exception.
@@ -133,7 +133,14 @@ namespace StateCensusAnalyserTest
             var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path2, '.', "asaState,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
-        
 
+        [Test]
+        public void CheckFirstState()
+        {
+             string pathjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
+             string expect = StateCensusAnalysis.FirstStateCheck(pathjson, "State");
+              string result = "Andhra Pradesh";
+              Assert.AreEqual(expect, result);
+         }
     }
 }

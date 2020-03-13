@@ -20,6 +20,7 @@ namespace StateCensusAnalyser
     /// Create a StateCensusAnalysis class
     /// Read the csv file
     /// </summary>
+    // private static string pathjsons = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
     public class StateCensusAnalysis
     {
         /// <summary>
@@ -76,8 +77,24 @@ namespace StateCensusAnalyser
             }
 
             return stateCensusArray;
-        } 
-       
+        }
+        /// <summary>
+        /// Create a method to test the first state with test case 
+        /// </summary>
+        /// <param name="pathjsons"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string FirstStateCheck(string pathjsons, string key)   
+        {
+            ///json file data store into a string variable
+            string jsons = File.ReadAllText(pathjsons);
+            ///string data store into a jason Array variable 
+            JArray jarr = JArray.Parse(jsons);
+            /// fisrt line key(state) store into string array
+            string fstate = jarr[0][key].ToString();
+            return fstate;
+        }
+
     }
     
 }
