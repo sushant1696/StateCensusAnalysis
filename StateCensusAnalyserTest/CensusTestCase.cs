@@ -16,6 +16,7 @@ namespace StateCensusAnalyserTest
     /// </summary>
     public class CensusTestCase
     {
+        Builtdelegate build_delegate = new Builtdelegate(Builder.BuildMethod);
         delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
         DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
         DelReadCsvFile delegateobjj = new DelReadCsvFile(new CSVStateCensus().ReadCsvFile);
@@ -25,7 +26,7 @@ namespace StateCensusAnalyserTest
         private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         private static string wrongpath2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCodesdds.csv";
         private static string wrongfiletype2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.textsd";
-        Builtdelegate build_delegate = new Builtdelegate(Builder.BuildMethod);
+   
         /// <summary>
         /// Test case 1.1 Giventhes the states census cs vfile when analyse sould check to ensurethe number of recordmatches.
         /// </summary>
@@ -123,6 +124,8 @@ namespace StateCensusAnalyserTest
         /// <summary>
         /// test case 2.5 Givens the incorrect header when analyse should throw census analyser exception.
         /// </summary>
+        /// 
+
         [Test]
         public void GivenTheIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
@@ -130,6 +133,7 @@ namespace StateCensusAnalyserTest
             var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path2, '.', "asaState,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
+        
 
     }
 }
