@@ -142,5 +142,13 @@ namespace StateCensusAnalyserTest
               string result = "Andhra Pradesh";
               Assert.AreEqual(expect, result);
          }
+        [Test]
+        public void CheckLastState()
+        {
+            string pathjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
+            string expect = StateCensusAnalysis.LastStateCheck(pathjson, "State");
+            string result = "West Bengal";
+            Assert.AreEqual(expect, result);
+        }
     }
 }

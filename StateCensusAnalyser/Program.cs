@@ -16,9 +16,9 @@ using static StateCensusAnalyser.StateCensusAnalysis;
 namespace StateCensusAnalyser
 {
     class Program
-    { 
-        //private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
-        //private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
+    {
+        private static string path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv";
+       // private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         private static string pathjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
         static void Main(string[] args)
         {
@@ -36,11 +36,11 @@ namespace StateCensusAnalyser
             /Create a object of delegateOf_CSVStateCodeMethod
             delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
             delobj(path);*/
-
+           // Console.WriteLine("count the no of line in the csv file");
             //Console.WriteLine(new CSVStateCensus().ReadCsvFile(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
-            //Console.WriteLine(new CSVStates().ReadCsvFile(path2, ',', "SrNo,State,Name,TIN,StateCode"));
-           
-           // StateCensusAnalysis obj = new StateCensusAnalysis();
+           // Console.WriteLine(new CSVStates().ReadCsvFile(path2, ',', "SrNo,State,Name,TIN,StateCode"));
+
+            //Console.WriteLine("This code for sorting the code  in json file............");
             JArray ja= StateCensusAnalysis.CensusAnalyserSort(pathjson);
             var s = JsonConvert.SerializeObject(ja, Formatting.Indented);
             File.WriteAllText(pathjson, s);

@@ -94,6 +94,16 @@ namespace StateCensusAnalyser
             string fstate = jarr[0][key].ToString();
             return fstate;
         }
+        public static string LastStateCheck(string pathjsons, string key)
+        {
+            ///json file data store into a string variable
+            string jsons = File.ReadAllText(pathjsons);
+            ///string data store into a jason Array variable 
+            JArray jarray = JArray.Parse(jsons);
+            /// Last line key(state) store into string variable
+            string laststate = jarray[28][key].ToString();
+            return laststate;
+        }
 
     }
     
