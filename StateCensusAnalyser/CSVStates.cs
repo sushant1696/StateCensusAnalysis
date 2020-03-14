@@ -53,6 +53,9 @@ namespace StateCensusAnalyser
             }
 
         }
+        /// <summary>
+        /// Read CSVState code and write the CSVState code into json file 
+        /// </summary>
         public void CSVJsonReadWrite()
         {
 
@@ -68,6 +71,11 @@ namespace StateCensusAnalyser
             File.WriteAllText(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\json1.json", sb.ToString());
             Console.WriteLine(sb.ToString());
         }
+        /// <summary>
+        /// Sorted the json file in order to state code 
+        /// </summary>
+        /// <param name="csvjsonpath"></param>
+        /// <returns></returns>
         public static JArray CSVStateCodeSort(string csvjsonpath)
         {
             string json = File.ReadAllText(csvjsonpath);
@@ -88,7 +96,32 @@ namespace StateCensusAnalyser
 
             return CSVArray;
         }
-
+        /// <summary>
+        ///CSVstate code first state test 
+        /// </summary>
+        /// <param name="csvjsonpath"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string FirstStateCheck(string csvjsonpath, string key)
+        {
+            ///json file data store into a string variable
+            string jsons = File.ReadAllText(csvjsonpath);
+            ///string data store into a jason Array variable 
+            JArray jarr = JArray.Parse(jsons);
+            /// fisrt line key(state) store into string array
+            string fstate = jarr[0][key].ToString();
+            return fstate;
+        }
+        public static string LastStateCheck(string csvjsonpath, string key)
+        {
+            ///json file data store into a string variable
+            string jsons = File.ReadAllText(csvjsonpath);
+            ///string data store into a jason Array variable 
+            JArray jarr = JArray.Parse(jsons);
+            /// fisrt line key(state) store into string array
+            string lstate = jarr[36][key].ToString();
+            return lstate;
+        }
 
     }
 

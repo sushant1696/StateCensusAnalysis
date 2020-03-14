@@ -38,9 +38,9 @@ namespace StateCensusAnalyser
             /Create a object of delegateOf_CSVStateCodeMethod
             delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
             delobj(path);*/
-            // Console.WriteLine("count the no of line in the csv file");
-            //Console.WriteLine(new CSVStateCensus().ReadCsvFile(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
-            // Console.WriteLine(new CSVStates().ReadCsvFile(path2, ',', "SrNo,State,Name,TIN,StateCode"));
+            Console.WriteLine("count the no of line in the csv file");
+            Console.WriteLine(new CSVStateCensus().ReadCsvFile(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
+            Console.WriteLine(new CSVStates().ReadCsvFile(path2, ',', "SrNo,State,Name,TIN,StateCode"));
 
             //Console.WriteLine("This code for sorting the State census Analyser data in json file............");
             //JArray ja = StateCensusAnalysis.CensusAnalyserSort(pathjson);

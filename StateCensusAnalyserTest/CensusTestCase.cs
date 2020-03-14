@@ -155,5 +155,27 @@ namespace StateCensusAnalyserTest
             string result = "West Bengal";
             Assert.AreEqual(expect, result);
         }
+        /// <summary>
+        /// CSVState code first state test
+        /// </summary>
+        [Test]
+        public void CheckCSVFirstState()
+        {
+            string csvjsonpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json";
+            string result = CSVStates.FirstStateCheck(csvjsonpath, "StateCode");
+            string expect = "AD";
+            Assert.AreEqual(expect, result);
+        }
+        /// <summary>
+        /// Test CSVLast State 
+        /// </summary>
+        [Test]
+        public void CheckCSVLastState()
+        {
+            string csvjsonpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json";
+            string result = CSVStates.LastStateCheck(csvjsonpath, "StateCode");
+            string expect = "WB";
+            Assert.AreEqual(expect, result);
+        }
     }
 }
