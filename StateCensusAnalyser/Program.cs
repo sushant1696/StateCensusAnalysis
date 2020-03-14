@@ -52,7 +52,7 @@ namespace StateCensusAnalyser
             cs.CSVJsonReadWrite();
             //Console.WriteLine("csv state code sort...................");
             //CSVStates.CSVStateCodeSort(@"C: \Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json");
-            
+
             Console.WriteLine("This code for sorting the csvstate in json file............");
             string csvjsonpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json";
             JArray ja = CSVStates.CSVStateCodeSort(csvjsonpath);

@@ -1,4 +1,5 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+﻿
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="StateCensusAnalyserProblem.cs" company="Bridgelabz">
 //   Copyright © 2020 Company="BridgeLabz"
 // </copyright>
@@ -7,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace StateCensusAnalyser
@@ -14,7 +16,7 @@ namespace StateCensusAnalyser
     /// <summary>
     /// Creat a class CSVStateCensus
     /// </summary>
-    public class CSVStateCensus: IBuilder
+    public class CSVStateCensus : IBuilder
     {
         /// <summary>
         /// Reads the CSV file.
@@ -39,7 +41,7 @@ namespace StateCensusAnalyser
             {
                 if (Path.GetExtension(path) == ".csv")
                 {
-                   
+
                     string[] data = File.ReadAllLines(path);
                     if (!data[0].Equals(header))
                     {
@@ -52,13 +54,16 @@ namespace StateCensusAnalyser
                             throw new StateCensusException("given delimiter incorrect");
                         }
                     }
-                    
-                    List<string > element = new List<string>();
-                    foreach (string  item in data)
+                    string[] Alldata = File.ReadAllLines(path);
+                    foreach (string item in data)
                     {
-                        element.Add(item);
+                        Console.WriteLine(Alldata);
                     }
-                    return element.Count;
+                    //var path = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusData.csv"; //define path of csv file here
+                    var lines = File.ReadLines(path);
+                    var dictionary = lines.Select(line => line.Split(',')).ToDictionary(data => data[0], data => data[1]);
+
+                    return dictionary.Count();
                 }
                 else
                     throw new StateCensusException("Type of file is incorrect");
@@ -72,5 +77,5 @@ namespace StateCensusAnalyser
 
     }
 }
-    
+
 

@@ -62,18 +62,18 @@ namespace StateCensusAnalyser
         {
             string json = File.ReadAllText(pathjson);
             JArray stateCensusArray = JArray.Parse(json);
-            for(int i = 0; i < stateCensusArray.Count - 1; i++)
+            for (int i = 0; i < stateCensusArray.Count - 1; i++)
             {
-                for(int j = 0; j < stateCensusArray.Count - i - 1; j++)
+                for (int j = 0; j < stateCensusArray.Count - i - 1; j++)
                 {
                     if (stateCensusArray[j]["State"].ToString().CompareTo(stateCensusArray[j + 1]["State"].ToString()) > 0)
                     {
                         var temp = stateCensusArray[j + 1];
-                        stateCensusArray[j + 1]= stateCensusArray[j];
-                        stateCensusArray[j]=temp;
+                        stateCensusArray[j + 1] = stateCensusArray[j];
+                        stateCensusArray[j] = temp;
                     }
                 }
-                
+
             }
 
             return stateCensusArray;
@@ -84,7 +84,7 @@ namespace StateCensusAnalyser
         /// <param name="pathjsons"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static string FirstStateCheck(string pathjsons, string key)   
+        public static string FirstStateCheck(string pathjsons, string key)
         {
             ///json file data store into a string variable
             string jsons = File.ReadAllText(pathjsons);
@@ -105,7 +105,8 @@ namespace StateCensusAnalyser
             return laststate;
         }
 
+
     }
-    
+
 }
-    
+
