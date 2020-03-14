@@ -4,6 +4,8 @@
 // </copyright>
 // <creator name="Sushanta Das"/>
 // --------------------------------------------------------------------------------------------------------------------
+using ChoETL;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,15 +14,17 @@ using System.Text;
 namespace StateCensusAnalyser
 {
     public delegate int DCsvState(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode");
-    public class CSVStates: IBuilder
+
+    public class CSVStates : IBuilder
     {
+        public static string csvpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         public int ReadCsvFile(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode")
         {
             try
             {
                 if (Path.GetExtension(path) == ".csv")
                 {
-                   
+
                     string[] data = File.ReadAllLines(path);
                     if (!data[0].Equals(header))
                     {
@@ -49,5 +53,28 @@ namespace StateCensusAnalyser
             }
 
         }
+        public void CSVJsonReadWrite()
+        {
+
+            string csv = File.ReadAllText(csvpath);
+            StringBuilder sb = new StringBuilder();
+            using (var p = ChoCSVReader.LoadText(csv)
+                .WithFirstLineHeader())
+
+            {
+                using (var w = new ChoJSONWriter(sb))
+                    w.Write(p);
+            }
+            File.WriteAllText(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\json1.json", sb.ToString());
+            Console.WriteLine(sb.ToString());
+        }
+
+
+
     }
+
+
+
+
+
 }

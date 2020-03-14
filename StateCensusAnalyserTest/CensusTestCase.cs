@@ -133,15 +133,20 @@ namespace StateCensusAnalyserTest
             var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path2, '.', "asaState,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
-
+        /// <summary>
+        /// tested the first state of json file
+        /// </summary>
         [Test]
         public void CheckFirstState()
         {
-             string pathjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
-             string expect = StateCensusAnalysis.FirstStateCheck(pathjson, "State");
-              string result = "Andhra Pradesh";
-              Assert.AreEqual(expect, result);
-         }
+            string pathjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
+            string expect = StateCensusAnalysis.FirstStateCheck(pathjson, "State");
+            string result = "Andhra Pradesh";
+            Assert.AreEqual(expect, result);
+        }
+        /// <summary>
+        /// Tested the last state of json file 
+        /// </summary>
         [Test]
         public void CheckLastState()
         {
