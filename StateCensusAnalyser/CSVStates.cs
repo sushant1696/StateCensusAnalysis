@@ -68,7 +68,26 @@ namespace StateCensusAnalyser
             File.WriteAllText(@"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\json1.json", sb.ToString());
             Console.WriteLine(sb.ToString());
         }
+        public static JArray CSVStateCodeSort(string csvjsonpath)
+        {
+            string json = File.ReadAllText(csvjsonpath);
+            JArray CSVArray = JArray.Parse(json);
+            for (int i = 0; i < CSVArray.Count - 1; i++)
+            {
+                for (int j = 0; j < CSVArray.Count - i - 1; j++)
+                {
+                    if (CSVArray[j]["StateCode"].ToString().CompareTo(CSVArray[j + 1]["StateCode"].ToString()) > 0)
+                    {
+                        var temp = CSVArray[j + 1];
+                        CSVArray[j + 1] = CSVArray[j];
+                        CSVArray[j] = temp;
+                    }
+                }
 
+            }
+
+            return CSVArray;
+        }
 
 
     }

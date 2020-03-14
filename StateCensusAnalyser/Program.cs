@@ -21,7 +21,7 @@ namespace StateCensusAnalyser
         private static string path2 = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         private static string csvpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
         private static string pathjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CensusAnalyserJsonFile.json";
-       public string pathCSVjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjsonFile.json";
+        public string pathCSVjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjsonFile.json";
         static void Main(string[] args)
         {
             /*Console.WriteLine("This is CSVStates class methods delegate process.......");
@@ -49,8 +49,15 @@ namespace StateCensusAnalyser
 
             Console.WriteLine("This code for Convert the csv to json of CSVStateCode......  ");
             CSVStates cs = new CSVStates();
-             cs.CSVJsonReadWrite();
-            Console.WriteLine("jkj");
+            cs.CSVJsonReadWrite();
+            //Console.WriteLine("csv state code sort...................");
+            //CSVStates.CSVStateCodeSort(@"C: \Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json");
+            
+            Console.WriteLine("This code for sorting the csvstate in json file............");
+            string csvjsonpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json";
+            JArray ja = CSVStates.CSVStateCodeSort(csvjsonpath);
+            var s = JsonConvert.SerializeObject(ja, Formatting.Indented);
+            File.WriteAllText(csvjsonpath, s);
         }
 
     }
