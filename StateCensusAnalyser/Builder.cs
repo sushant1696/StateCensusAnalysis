@@ -21,7 +21,7 @@ namespace StateCensusAnalyser
     public delegate int Builtdelegate(IBuilder builder, string path, char delimiter = ',', string header = "");
     public class Builder
     {
-       static int results;
+        static int results;
         /// <summary>
         /// Create a method of to calling the implementing classes method
         /// </summary>
@@ -30,7 +30,7 @@ namespace StateCensusAnalyser
         /// <param name="delimiter"></param>
         /// <param name="header"></param>
         /// <returns></returns>
-        public static int BuildMethod(IBuilder builder,string path, char delimiter=',',string header = "")
+        public static int BuildMethod(IBuilder builder, string path, char delimiter = ',', string header = "")
         {
             try
             {

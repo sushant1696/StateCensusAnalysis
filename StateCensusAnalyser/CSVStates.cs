@@ -14,12 +14,12 @@ using System.Text;
 
 namespace StateCensusAnalyser
 {
-    public delegate int DCsvState(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode");
+    public delegate int DCsvState(string path, char delimiter = ',', string header = "SrNo,StateName,TIN,StateCode");
 
     public class CSVStates : IBuilder
     {
         public static string csvpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
-        public int ReadCsvFile(string path, char delimiter , string header )
+        public int ReadCsvFile(string path, char delimiter, string header)
         {
             try
             {
@@ -27,6 +27,7 @@ namespace StateCensusAnalyser
                 {
 
                     string[] data = File.ReadAllLines(path);
+                   
                     if (!data[0].Equals(header))
                     {
                         throw new StateCensusException("given_header_incorrect");
@@ -42,16 +43,20 @@ namespace StateCensusAnalyser
                     var dictionary = lines.Select(line => line.Split(',')).ToDictionary(data => data[0], data => data[1]);
 
                     return dictionary.Count();
+                    
                 }
+                
                 else
                     throw new StateCensusException("Type of file is incorrect");
             }
+            
             catch (FileNotFoundException)
             {
                 throw new StateCensusException("file path is incorrect");
             }
-
+           
         }
+       
         /// <summary>
         /// Read CSVState code and write the CSVState code into json file 
         /// </summary>

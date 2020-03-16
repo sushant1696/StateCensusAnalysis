@@ -26,8 +26,8 @@ namespace StateCensusAnalyser
         {
             Console.WriteLine("This is CSVStates class methods delegate process.......");
             /// Create a object of delegate
-             DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
-            delegateobj(path2, ',', "SrNo,State,Name,TIN,StateCode");
+            DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
+            delegateobj(path2, ',', "SrNo,StateName,TIN,StateCode");
 
             Console.WriteLine("This is CSVStatesCensus class methods delegate process.......");
             /// Create a object of delegate  of CSVStateCensus ReadCsvFile method
@@ -36,7 +36,7 @@ namespace StateCensusAnalyser
 
             Console.WriteLine("This is StateCensusAnalysis class methods delegate process.......");
             /// Create a object of delegateOf_CSVStateCodeMethod
-             delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
+            delegateOf_CSVStateCodeMethod delobj = new delegateOf_CSVStateCodeMethod(new StateCensusAnalysis().CSVStateCodeMethod);
             delobj(path);
             Console.WriteLine("count the no of line in the csv file");
             Console.WriteLine(new CSVStateCensus().ReadCsvFile(path, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
@@ -50,6 +50,7 @@ namespace StateCensusAnalyser
             Console.WriteLine("This code for Convert the csv to json of CSVStateCode......  ");
             CSVStates cs = new CSVStates();
             cs.CSVJsonReadWrite();
+           
             //Console.WriteLine("csv state code sort...................");
             //CSVStates.CSVStateCodeSort(@"C: \Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json");
 

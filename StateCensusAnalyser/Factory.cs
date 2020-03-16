@@ -13,7 +13,7 @@ namespace StateCensusAnalyser
     /// <summary>
     /// Create a factory class
     /// </summary>
-   public class Factory
+    public class Factory
     {
         /// <summary>
         /// 

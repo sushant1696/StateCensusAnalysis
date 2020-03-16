@@ -26,7 +26,7 @@ namespace StateCensusAnalyser
         /// create a constructore of  StateCensusException class
         /// </summary>
         /// <param name="msg">The MSG.</param>
-        public StateCensusException( string msg )
+        public StateCensusException(string msg)
         {
             this.Message = msg;
         }

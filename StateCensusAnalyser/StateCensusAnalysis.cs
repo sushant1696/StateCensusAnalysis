@@ -66,7 +66,7 @@ namespace StateCensusAnalyser
             {
                 for (int j = 0; j < stateCensusArray.Count - i - 1; j++)
                 {
-                    if (stateCensusArray[j]["State"].ToString().CompareTo(stateCensusArray[j + 1]["State"].ToString()) > 0)
+                    if ((int)stateCensusArray[j]["Population"]<((int)stateCensusArray[j + 1]["Population"]))
                     {
                         var temp = stateCensusArray[j + 1];
                         stateCensusArray[j + 1] = stateCensusArray[j];

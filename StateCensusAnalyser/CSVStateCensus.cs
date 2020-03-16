@@ -35,7 +35,7 @@ namespace StateCensusAnalyser
         /// file path is incorrect
         /// </exception>
         public delegate int DelReadCsvFile(string path, char delimiter = ',', string header = "State,Population,AreaInSqKm,DensityPerSqKm");
-        public int ReadCsvFile(string path, char delimiter, string header )
+        public int ReadCsvFile(string path, char delimiter, string header)
         {
             try
             {
