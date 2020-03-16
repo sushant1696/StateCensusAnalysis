@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace StateCensusAnalyser
@@ -37,12 +38,10 @@ namespace StateCensusAnalyser
                             throw new StateCensusException("given delimiter incorrect");
                         }
                     }
-                    List<string> element = new List<string>();
-                    foreach (var item in data)
-                    {
-                        element.Add(item);
-                    }
-                    return element.Count;
+                    var lines = File.ReadLines(path);
+                    var dictionary = lines.Select(line => line.Split(',')).ToDictionary(data => data[0], data => data[1]);
+
+                    return dictionary.Count();
                 }
                 else
                     throw new StateCensusException("Type of file is incorrect");
