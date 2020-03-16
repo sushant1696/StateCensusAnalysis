@@ -19,7 +19,7 @@ namespace StateCensusAnalyser
     public class CSVStates : IBuilder
     {
         public static string csvpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCode.csv";
-        public int ReadCsvFile(string path, char delimiter = ',', string header = "SrNo,State,Name,TIN,StateCode")
+        public int ReadCsvFile(string path, char delimiter , string header )
         {
             try
             {
@@ -33,7 +33,7 @@ namespace StateCensusAnalyser
                     }
                     foreach (string str in data)
                     {
-                        if (str.Split(delimiter).Length != 5 && str.Split(delimiter).Length != 4)
+                        if (str.Split(delimiter).Length != 5 && str.Split(delimiter).Length != 4 && str.Split(delimiter).Length != 2)
                         {
                             throw new StateCensusException("given delimiter incorrect");
                         }

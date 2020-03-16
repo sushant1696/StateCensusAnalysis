@@ -33,7 +33,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GiventheStatesCensusCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
-            var a = Factory.IsFactory("CSVStateCensus");
+            var a = Factory.IsFactory("CSVStates");
             var z = build_delegate(a, path, ',', "State,Population,AreaInSqKm,DensityPerSqKm");
             // int expect = delobj(path);
             //int  result= delegateobjj(path);
@@ -45,7 +45,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenIncorrectfile_WhenAnalyse_ShouldThrowCensusuAnalyserException()
         {
-            var obj = Factory.IsFactory("CSVStateCensus");
+            var obj = Factory.IsFactory("CSVStates");
             var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj, wrongpath, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("file path is incorrect", ex.GetMessage);
         }
@@ -55,7 +55,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
         {
-            var obj1 = Factory.IsFactory("CSVStateCensus");
+            var obj1 = Factory.IsFactory("CSVStates");
             var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj1, wrongfiletype, ',', "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
@@ -65,7 +65,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheStateCensusCSVFileCorrectButDelimiterIncorrect_WhenAnalyse_SouldReturnscustomException()
         {
-            var obj1 = Factory.IsFactory("CSVStateCensus");
+            var obj1 = Factory.IsFactory("CSVStates");
             var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path, '.', "State,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("given delimiter incorrect", del.GetMessage);
         }
@@ -75,8 +75,8 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
-            var obj1 = Factory.IsFactory("CSVStateCensus");
-            var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path, '.', "asaState,Population,AreaInSqKm,DensityPerSqKm"));
+            var obj1 = Factory.IsFactory("CSVStates");
+            var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path, ',', "asaState,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
         /// <summary>
@@ -85,10 +85,8 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GiventheStatesCodeCSVfile_whenAnalyse_SouldCheckToEnsuretheNumberOfRecordmatches()
         {
-            //int expect = new StateCensusAnalysis().CSVStateCodeMethod(path2);
-            //int result = delegateobj(path2);
             var obj = Factory.IsFactory("CSVStates");
-            var z = build_delegate(obj, path2, ',', "SrNo,State,Name,TIN,StateCode");
+            var z = build_delegate(obj, path2, ',', "SrNo,StateName,TIN,StateCode");
             Assert.AreEqual(38, z);
         }
         /// <summary>
@@ -107,7 +105,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenStateCensusCSVFileCorrectButTypeIncorrect_WhenAnalyse_SouldReturnsCustomException()
         {
-            var obj1 = Factory.IsFactory("CSVStateCensus");
+            var obj1 = Factory.IsFactory("CSVStates");
             var ex = Assert.Throws<StateCensusException>(() => build_delegate(obj1, wrongfiletype2, ',', "SrNo,State,Name,TIN,StateCode"));
             Assert.AreEqual("Type of file is incorrect", ex.GetMessage);
         }
@@ -117,8 +115,8 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenStateCensusCSVFileCorrectButDelimiterIncorrect_WhenAnalyse_SouldReturnscustomException()
         {
-            var obj1 = Factory.IsFactory("CSVStateCensus");
-            var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path2, '.', "SrNo,State,Name,TIN,StateCode"));
+            var obj1 = Factory.IsFactory("CSVStates");
+            var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path2, '.', "SrNo,StateName,TIN,StateCode"));
             Assert.AreEqual("given delimiter incorrect", del.GetMessage);
         }
         /// <summary>
@@ -129,7 +127,7 @@ namespace StateCensusAnalyserTest
         [Test]
         public void GivenTheIncorrectHeader_WhenAnalyse_ShouldThrowCensusAnalyserException()
         {
-            var obj1 = Factory.IsFactory("CSVStateCensus");
+            var obj1 = Factory.IsFactory("CSVStates");
             var del = Assert.Throws<StateCensusException>(() => build_delegate(obj1, path2, '.', "asaState,Population,AreaInSqKm,DensityPerSqKm"));
             Assert.AreEqual("given_header_incorrect", del.GetMessage);
         }
