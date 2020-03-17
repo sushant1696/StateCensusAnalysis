@@ -12,10 +12,19 @@
           "ChoETL.JSON": "1.1.0.5",
           "CsvHelper": "15.0.1",
           "Grpc.Core": "2.27.0",
-          "IKVM": "8.1.5717"
+          "IKVM": "8.1.5717",
+          "chilkat-x64": "9.5.0.82"
         },
         "runtime": {
           "StateCensusAnalyser.dll": {}
+        }
+      },
+      "chilkat-x64/9.5.0.82": {
+        "runtime": {
+          "lib/net461/ChilkatDotNet46.dll": {
+            "assemblyVersion": "9.5.0.82",
+            "fileVersion": "9.5.0.82"
+          }
         }
       },
       "ChoETL/1.1.0.5": {
@@ -1122,6 +1131,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "chilkat-x64/9.5.0.82": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GFEi4ScnK9fnmoOVcvgMBVqQqDWr12H39zTj52EOf1XYWayc8gDmgO2LInTFACDzKHsVnHBALvIQXxaxgIxZ2g==",
+      "path": "chilkat-x64/9.5.0.82",
+      "hashPath": "chilkat-x64.9.5.0.82.nupkg.sha512"
     },
     "ChoETL/1.1.0.5": {
       "type": "package",

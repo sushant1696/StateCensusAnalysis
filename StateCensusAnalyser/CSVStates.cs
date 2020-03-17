@@ -95,9 +95,7 @@ namespace StateCensusAnalyser
                         CSVArray[j] = temp;
                     }
                 }
-
             }
-
             return CSVArray;
         }
         /// <summary>
@@ -128,9 +126,4 @@ namespace StateCensusAnalyser
         }
 
     }
-
-
-
-
-
 }

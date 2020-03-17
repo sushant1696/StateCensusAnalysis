@@ -24,7 +24,7 @@ namespace StateCensusAnalyser
         public string pathCSVjson = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjsonFile.json";
         static void Main(string[] args)
         {
-            Console.WriteLine("This is CSVStates class methods delegate process.......");
+/*            Console.WriteLine("This is CSVStates class methods delegate process.......");
             /// Create a object of delegate
             DCsvState delegateobj = new DCsvState(new CSVStates().ReadCsvFile);
             delegateobj(path2, ',', "SrNo,StateName,TIN,StateCode");
@@ -50,7 +50,7 @@ namespace StateCensusAnalyser
             Console.WriteLine("This code for Convert the csv to json of CSVStateCode......  ");
             CSVStates cs = new CSVStates();
             cs.CSVJsonReadWrite();
-           
+
             //Console.WriteLine("csv state code sort...................");
             //CSVStates.CSVStateCodeSort(@"C: \Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json");
 
@@ -58,7 +58,12 @@ namespace StateCensusAnalyser
             string csvjsonpath = @"C:\Users\Bridgelabz\Documents\StateCensusAnalyserProject\StateCensusAnalyser\CSVjson.json";
             JArray jarr = CSVStates.CSVStateCodeSort(csvjsonpath);
             var sort = JsonConvert.SerializeObject(jarr, Formatting.Indented);
-            File.WriteAllText(csvjsonpath, sort);
+            File.WriteAllText(csvjsonpath, sort);*/
+            /// load USCensusData
+            //Console.WriteLine("Display the USCensus data...");
+            //USCensusData.DisplayUSCensusData();
+            int a=USCensusData.LoadUSCensusData();
+            Console.WriteLine("length{0}",a);
         }
 
     }
